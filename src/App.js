@@ -198,12 +198,6 @@ const SpendInput = () => {
     });
   };
 
-  const handleCardChange = (e) => {
-    const cardName = e.target.value;
-    const card = cards.find((card) => card.name === cardName);
-    setSelectedCard(card);
-  };
-
 
   return (
     <><div className='spend-input'>
@@ -330,7 +324,7 @@ const SpendInput = () => {
 
     </div>
       <div className='footer'>
-        <p>Made with ❤️ by <a href="https://github.com/cyberboysumanjay">Sumanjay</a><br />
+        <p>Made with ❤️ by <a href="https://github.com/cyberboysumanjay/CashbackCardComparisonTool">Sumanjay</a><br />
           <img alt="Hits" src="https://hits.sh/cashbackcards.netlify.app/hits.svg?style=flat-square&label=Page%20Views" /></p>
       </div >
     </>
