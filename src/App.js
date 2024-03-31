@@ -54,7 +54,7 @@ const cards = [
       fuel: 0.0,
       jewellery: 0.01,
       govtPayments: 0.01,
-      insurance: 0.02,
+      insurance: 0.01,
       offlineSpends: 0.01,
       onlineSpends: 0.01,
       rent: 0.01,
