@@ -206,10 +206,14 @@ const SpendInput = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setSpends({
-      ...spends,
-      [name]: value,
-    });
+    if(Number(value) && (Number(value) < 0))
+      alert("Please enter a valid amount");
+    else {
+      setSpends({
+        ...spends,
+        [name]: value,
+      });
+    }
   };
 
 
