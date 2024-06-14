@@ -142,7 +142,7 @@ const cards = [
       offlineSpends: 0.015,
       onlineSpends: 0.015,
       rent: 0.0,
-      utilities: 0.015,
+      utilities: 0.0,
       walletLoads: 0.0,
     }
   },
