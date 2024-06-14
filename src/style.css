@@ -1,18 +1,45 @@
-.spend-input {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
+:root {
+  --light-background: #f0f0f0;
+  --light-text-color: #333;
+  --dark-background: #333;
+  --dark-text-color: #f0f0f0;
+  --border-color: #ccc;
+  --input-background: #fff;
+  --footer-background: #f9f9f9;
+  --footer-text-color: #666;
 }
 
+body[data-theme='light'] {
+  background-color: var(--light-background);
+  color: var(--light-text-color);
+}
+
+body[data-theme='dark'] {
+  background-color: var(--dark-background);
+  color: var(--dark-text-color);
+}
+
+.spend-input,
 .spend-input-others {
   margin: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background);
 }
 
-/*Center the footer*/
+input[type="number"] {
+  margin: 5px 0;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-background);
+}
+
 .footer {
   width: 100%;
+  padding: 20px;
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
   text-align: center;
   font-size: smaller;
 }

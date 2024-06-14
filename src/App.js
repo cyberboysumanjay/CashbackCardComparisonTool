@@ -149,6 +149,16 @@ const cards = [
 ];
 
 const SpendInput = () => {
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   const [spends, setSpends] = useState({
     education: 0,
     fuel: 0,
@@ -218,134 +228,123 @@ const SpendInput = () => {
 
 
   return (
-    <><div className='spend-input'>
-      <h2>Cashback Cards Comparison Tool</h2>
-      <label htmlFor="education">
-        Education (₹):
-        <input
-          type="number"
-          name="education"
-          id="education"
-          value={spends.education}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="fuel">
-        Fuel (₹):
-        <input
-          type="number"
-          name="fuel"
-          id="fuel"
-          value={spends.fuel}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="jewellery">
-        Jewellery (₹):
-        <input
-          type="number"
-          name="jewellery"
-          id="jewellery"
-          value={spends.jewellery}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="govtPayments">
-        Govt. Payments (₹):
-        <input
-          type="number"
-          name="govtPayments"
-          id="govtPayments"
-          value={spends.govtPayments}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="insurance">
-        Insurance (₹):
-        <input
-          type="number"
-          name="insurance"
-          id="insurance"
-          value={spends.insurance}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="offlineSpends">
-        Offline Spends (₹):
-        <input
-          type="number"
-          name="offlineSpends"
-          id="offlineSpends"
-          value={spends.offlineSpends}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="onlineSpends">
-        Online Spends (₹):
-        <input
-          type="number"
-          name="onlineSpends"
-          id="onlineSpends"
-          value={spends.onlineSpends}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="rent">
-        Rent (₹):
-        <input
-          type="number"
-          name="rent"
-          id="rent"
-          value={spends.rent}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="utilities">
-        Utilities (₹):
-        <input
-          type="number"
-          name="utilities"
-          id="utilities"
-          value={spends.utilities}
-          onChange={handleInputChange} />
-      </label>
-      <label htmlFor="walletLoads">
-        Wallet Loads (₹):
-        <input
-          type="number"
-          name="walletLoads"
-          id="walletLoads"
-          value={spends.walletLoads}
-          onChange={handleInputChange} />
-      </label>
-      <br />
-      {/*
-      <div className='spend-input-others'>
-        <label htmlFor="card">
-          Check Cashback for:
-          <select name="card" id="card" defaultValue={bestCard.name} onChange={handleCardChange}>
-            {cards.map((card) => (
-              <option key={card.name} value={card.name}>
-                {card.name}
-              </option>
+    <>
+      <button onClick={toggleTheme} style={{ position: 'fixed', top: '10px', right: '10px' }}>
+        Toggle Theme
+      </button>
+      <div className='spend-input'>
+        <h2>Cashback Cards Comparison Tool</h2>
+        <label htmlFor="education">
+          Education (₹):
+          <input
+            type="number"
+            name="education"
+            id="education"
+            value={spends.education}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="fuel">
+          Fuel (₹):
+          <input
+            type="number"
+            name="fuel"
+            id="fuel"
+            value={spends.fuel}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="jewellery">
+          Jewellery (₹):
+          <input
+            type="number"
+            name="jewellery"
+            id="jewellery"
+            value={spends.jewellery}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="govtPayments">
+          Govt. Payments (₹):
+          <input
+            type="number"
+            name="govtPayments"
+            id="govtPayments"
+            value={spends.govtPayments}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="insurance">
+          Insurance (₹):
+          <input
+            type="number"
+            name="insurance"
+            id="insurance"
+            value={spends.insurance}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="offlineSpends">
+          Offline Spends (₹):
+          <input
+            type="number"
+            name="offlineSpends"
+            id="offlineSpends"
+            value={spends.offlineSpends}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="onlineSpends">
+          Online Spends (₹):
+          <input
+            type="number"
+            name="onlineSpends"
+            id="onlineSpends"
+            value={spends.onlineSpends}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="rent">
+          Rent (₹):
+          <input
+            type="number"
+            name="rent"
+            id="rent"
+            value={spends.rent}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="utilities">
+          Utilities (₹):
+          <input
+            type="number"
+            name="utilities"
+            id="utilities"
+            value={spends.utilities}
+            onChange={handleInputChange} />
+        </label>
+        <label htmlFor="walletLoads">
+          Wallet Loads (₹):
+          <input
+            type="number"
+            name="walletLoads"
+            id="walletLoads"
+            value={spends.walletLoads}
+            onChange={handleInputChange} />
+        </label>
+        <br />
+        <p>
+          Best Card for the entered expense is <strong>{bestCard.name}</strong> with total cashback of <strong>₹ {bestCashback.toFixed(2)}</strong>
+        </p>
+
+        <h3>Other Card Cashbacks:</h3>{' '}
+        <ul>
+          {
+            otherCardsCashback.map((card) => (
+              <li key={card.cardName}>
+                <strong>{card.cardName}</strong>: ₹ {card.cashback}{' '}
+              </li>
             ))}
-          </select>
-        </label><br />
-        Total Cashback: <strong>{totalCashback.toFixed(2)}</strong>
+        </ul>
+
       </div>
-            */}
-      <p>
-        Best Card for the entered expense is <strong>{bestCard.name}</strong> with total cashback of <strong>₹ {bestCashback.toFixed(2)}</strong>
-      </p>
-
-      <h3>Other Card Cashbacks:</h3>{' '}
-      <ul>
-        {
-          otherCardsCashback.map((card) => (
-            <li key={card.cardName}>
-              <strong>{card.cardName}</strong>: ₹ {card.cashback}{' '}
-            </li>
-          ))}
-      </ul>
-
-    </div>
-      <div className='footer'>
-        <p>Made with ❤️ by <a href="https://github.com/cyberboysumanjay/CashbackCardComparisonTool">Sumanjay</a><br />
-          <img alt="Hits" src="https://hits.sh/cashbackcards.netlify.app/hits.svg?style=flat-square&label=Page%20Views" /></p>
-      </div >
-    </>
+        <div className='footer'>
+          <p>Made with ❤️ by <a href="https://github.com/cyberboysumanjay/CashbackCardComparisonTool">Sumanjay</a><br />
+            <img alt="Hits" src="https://hits.sh/cashbackcards.netlify.app/hits.svg?style=flat-square&label=Page%20Views" /></p>
+        </div >
+      </>
   );
 };
 
