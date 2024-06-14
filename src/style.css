@@ -1,18 +1,41 @@
-.spend-input {
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
+:root {
+  --primary-color: #f0f0f0;
+  --secondary-color: #ccc;
+  --font-color: #333;
+  --border-color: #ccc;
+  --input-background: #fff;
+  --footer-background: #f9f9f9;
+  --footer-text-color: #666;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--font-color);
+}
+
+.spend-input,
 .spend-input-others {
   margin: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
+  background-color: var(--primary-color);
 }
 
-/*Center the footer*/
+input[type="number"] {
+  margin: 5px 0;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--input-background);
+}
+
 .footer {
   width: 100%;
+  padding: 20px;
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
   text-align: center;
   font-size: smaller;
 }
